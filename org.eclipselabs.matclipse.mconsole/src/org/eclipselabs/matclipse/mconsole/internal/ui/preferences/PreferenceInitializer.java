@@ -31,6 +31,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store = MConsolePlugin.getDefault().getPreferenceStore();
 		store.setDefault(IPreferenceConstants.P_MATLABPATH, "/usr/local/bin");
+		store.setDefault(IPreferenceConstants.P_MATLABOPTIONS, "-nodesktop -nosplash");
 		store.setDefault(IPreferenceConstants.P_MATLABINTERPRETER, "matlab");
 		store.setDefault(IPreferenceConstants.P_COMMANDHISTORY,"Default value");
 		store.setDefault(IPreferenceConstants.P_REMEMBERCOMMANDHISTORY,true);

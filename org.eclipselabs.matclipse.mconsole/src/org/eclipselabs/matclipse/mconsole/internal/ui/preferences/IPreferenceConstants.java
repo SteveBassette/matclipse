@@ -22,6 +22,7 @@ public interface IPreferenceConstants {
 	public static String ID = "org.eclipselabs.matclipse.mconsole.";
 
 	public static String P_MATLABPATH = ID+"matlabPath";
+	public static String P_MATLABOPTIONS = ID+"matlabStartupOptions";
 	public static String P_COMMANDHISTORY = ID+"McommandHistory";
 	public static String P_REMEMBERCOMMANDHISTORY = ID+"rememberCommandHistory";
 	public static String P_CDFEEDBACK = ID+"feedBackCdEvents";

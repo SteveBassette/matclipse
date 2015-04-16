@@ -18,6 +18,7 @@ import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
@@ -45,6 +46,8 @@ public class MatlabConsolePreferencePage extends FieldEditorPreferencePage
 				{ "octave (experimental)", "octave" } };
 		addField(new DirectoryFieldEditor(IPreferenceConstants.P_MATLABPATH,
 				"&Path to matlab executable ($MATLABPATH/bin):", parent));
+		addField(new StringFieldEditor(IPreferenceConstants.P_MATLABOPTIONS,
+				"MATLAB Startup &Options:", parent));
 		addField(new ComboFieldEditor(IPreferenceConstants.P_MATLABINTERPRETER,
 				"Matlab Interpreter:", matlab, parent));
 		addField(new BooleanFieldEditor(

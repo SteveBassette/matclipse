@@ -31,6 +31,8 @@ public class UnixMatlabInterpreter extends XMLMatlabInterpreter {
 	protected boolean startLocal() {
 		String mlp = MConsolePlugin.getDefault().getPreferenceStore()
 				.getString(IPreferenceConstants.P_MATLABPATH);
+		String mlOptions = MConsolePlugin.getDefault().getPreferenceStore()
+				.getString(IPreferenceConstants.P_MATLABOPTIONS);
 		File matlabPath = new File(mlp);
 		if (!matlabPath.isDirectory()) {
 			outputConsoleError(
@@ -40,16 +42,16 @@ public class UnixMatlabInterpreter extends XMLMatlabInterpreter {
 		}
 
 		String matlabStartString = matlabPath.toString() + File.separator
-				+ "matlab";
+				+ "matlab" + " " + mlOptions;
 		try {
 			if (MConsolePlugin.getSystem().equals("macosx")
 					|| MConsolePlugin.getSystem().equals("mac os x")) {
 				matlabProcess = java.lang.Runtime.getRuntime().exec(
-						matlabStartString + " -nodesktop -nosplash 2>&1",
+						matlabStartString + " 2>&1",
 						new String[] { "TERM=xterm-color", "DISPLAY=:0.0" });
 			} else
 				matlabProcess = java.lang.Runtime.getRuntime().exec(
-						matlabStartString + " -nodesktop -nosplash 2>&1");
+						matlabStartString + " 2>&1");
 			matlabInputStream = matlabProcess.getInputStream();
 			matlabOutputStream = matlabProcess.getOutputStream();
 		} catch (Exception ce) {
